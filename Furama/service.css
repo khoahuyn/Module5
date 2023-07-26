@@ -20,47 +20,6 @@ nav a {
     text-decoration: none;
 }
 
-.language ul{
-    list-style: none;
-
-}
-
-.language a{
-    color: #333333;
-}
-
-.language li{
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.reservation-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.chunoi{
-    color: #cbbe73;
-    font-family: Playfair Display;
-    font-size: 26px;
-}
-
-
-.sec1 {
-    display: flex;
-    align-items: center;
-}
-
-.anh {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.content {
-    flex: 2;
-}
-
-
 footer {
     background-color: #addccf;
     color:  #333333;
@@ -76,3 +35,12 @@ footer {
 .footer-item-contact i{
     margin-right: 20px;
 }
+
+.chunoi{
+    color: #cbbe73;
+    font-family: Playfair Display;
+    font-size: 48px;
+    text-align: center;
+}
+
+
