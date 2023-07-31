@@ -7,6 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { ServiceComponent } from './service/service.component';
 import { ListserviceComponent } from './listservice/listservice.component';
 import { EditserviceComponent } from './editservice/editservice.component';
+import { ListcustomerComponent } from './listcustomer/listcustomer.component';
+import { EditcustomerComponent } from './editcustomer/editcustomer.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ContractComponent } from './contract/contract.component';
+import { ListcontractComponent } from './listcontract/listcontract.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { EditserviceComponent } from './editservice/editservice.component';
     HomeComponent,
     ServiceComponent,
     ListserviceComponent,
-    EditserviceComponent
+    EditserviceComponent,
+    ListcustomerComponent,
+    EditcustomerComponent,
+    CustomerComponent,
+    ContractComponent,
+    ListcontractComponent
   ],
   imports: [
     BrowserModule,
