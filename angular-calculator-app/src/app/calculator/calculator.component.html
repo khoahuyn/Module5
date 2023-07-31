@@ -1,0 +1,12 @@
+<h1>Simple calculator</h1>
+<span>Number 1:</span>
+<input type="number" [(ngModel)]="number1">
+<span>Number 2:</span>
+<input type="number" [(ngModel)]="number2">
+<br><br>
+<button (click)="cong()">Addition(+)</button>
+<button (click)="tru()">Subtraction(-)</button>
+<button (click)="nhan()">Mutiplication(*)</button>
+<button (click)="chia()">Division(/)</button><br>
+
+<span>Result: {{result}}</span>
