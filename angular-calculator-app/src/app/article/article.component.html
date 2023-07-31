@@ -1,0 +1,49 @@
+
+<head>
+  <style>
+    .chunoi{
+      color: #cbbe73;
+      font-family: Playfair Display;
+      font-size: 48px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<h2 class="chunoi">Today's article</h2>
+<hr>
+<div>
+  <a href="{{article.url}}" target="_blank">{{article.title}}</a>
+</div>
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>: <app-like></app-like>
+</div>
+<hr>
+<div>
+  <h2 class="chunoi">Article Information</h2>
+  <table class="table">
+    <tr>
+      <td>Title:</td>
+      <td><textarea [(ngModel)]="article.title" cols="70"></textarea></td>
+    </tr>
+    <tr>
+      <td>Url:</td>
+      <td>
+        <textarea [(ngModel)]="article.url" cols="70"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button class="btn btn-primary" style="float: right" (click)="addNewArticle()">Add</button></td>
+    </tr>
+  </table>
+</div>
+<hr>
+<div>
+  <app-footer></app-footer>
+</div>
+
+
