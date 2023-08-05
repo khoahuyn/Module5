@@ -4,15 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ServiceComponent } from './service/service.component';
+import { ServiceComponent } from './addservice/service.component';
 import { ListserviceComponent } from './listservice/listservice.component';
 import { EditserviceComponent } from './editservice/editservice.component';
 import { ListcustomerComponent } from './listcustomer/listcustomer.component';
 import { EditcustomerComponent } from './editcustomer/editcustomer.component';
-import { CustomerComponent } from './customer/customer.component';
-import { ContractComponent } from './contract/contract.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { ContractComponent } from './addcontract/contract.component';
 import { ListcontractComponent } from './listcontract/listcontract.component';
 import { FacilityComponent } from './facility/facility.component';
+import {CustomerComponent} from "./customer/customer.component";
 
 @NgModule({
   declarations: [
@@ -23,10 +24,11 @@ import { FacilityComponent } from './facility/facility.component';
     EditserviceComponent,
     ListcustomerComponent,
     EditcustomerComponent,
-    CustomerComponent,
+    AddcustomerComponent,
     ContractComponent,
     ListcontractComponent,
-    FacilityComponent
+    FacilityComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
