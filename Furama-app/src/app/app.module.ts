@@ -10,10 +10,11 @@ import { EditserviceComponent } from './editservice/editservice.component';
 import { ListcustomerComponent } from './listcustomer/listcustomer.component';
 import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
-import { ContractComponent } from './addcontract/contract.component';
+import { AddcontractComponent } from './addcontract/addcontract.component';
 import { ListcontractComponent } from './listcontract/listcontract.component';
 import { FacilityComponent } from './facility/facility.component';
 import {CustomerComponent} from "./customer/customer.component";
+import { ContractComponent } from './contract/contract.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import {CustomerComponent} from "./customer/customer.component";
     ListcustomerComponent,
     EditcustomerComponent,
     AddcustomerComponent,
-    ContractComponent,
+    AddcontractComponent,
     ListcontractComponent,
     FacilityComponent,
-    CustomerComponent
+    CustomerComponent,
+    ContractComponent
   ],
   imports: [
     BrowserModule,
