@@ -30,10 +30,12 @@
   <div class="form-group">
     <label for="email">Email </label>
     <input type="email" class="form-control" id="email" placeholder="email@example.com" formControlName="email"
-           required>
+           required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
     <div *ngIf="registerForm.get('email').invalid && registerForm.get('email')?.touched">
-      <small class="text-danger" *ngIf="registerForm.get('email').invalid">Email field is required</small>
+      <small class="text-danger" *ngIf="registerForm.get('email').errors?.required">Email field is required</small>
+      <small class="text-danger" *ngIf="registerForm.get('email').errors?.pattern">Email field is not true pattern</small>
+
     </div>
 
   </div>
@@ -125,7 +127,7 @@
 
     <div *ngIf="registerForm.get('phone').invalid && registerForm.get('phone')?.touched">
       <small class="text-danger" *ngIf="registerForm.get('phone').errors?.required">Phone field is required</small>
-      <small class="text-danger" *ngIf="registerForm.get('phone').errors?.pattern">Phone field is not pattern</small>
+      <small class="text-danger" *ngIf="registerForm.get('phone').errors?.pattern">Phone field is not true pattern</small>
     </div>
 
   </div>
