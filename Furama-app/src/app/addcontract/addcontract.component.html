@@ -68,15 +68,13 @@
 
   <nav>
     <ul>
-      <li><a href="Home.html">HOME</a></li>
-      <li><a>THE RESORT</a></li>
-      <li><a>ROOMS & SUITES</a></li>
-      <li><a HREF="Contract.html">CONTRACT</a></li>
-      <li><a HREF="ListContract.html">LIST CONTRACT</a></li>
-      <li><a HREF="Service.html">SERVICE</a></li>
-      <li><a HREF="ListService.html">LIST SERVICE</a></li>
-      <li><a HREF="Customer.html">CUSTOMER</a></li>
-      <li><a HREF="ListCustomer.html">LIST CUSTOMER</a></li>
+      <li><a href="">HOME</a></li>
+      <li><a HREF="">ADD CONTRACT</a></li>
+      <li><a HREF="">LIST CONTRACT</a></li>
+      <li><a HREF="">ADD SERVICE</a></li>
+      <li><a HREF="">LIST SERVICE</a></li>
+      <li><a HREF="">ADD CUSTOMER</a></li>
+      <li><a HREF="">LIST CUSTOMER</a></li>
     </ul>
   </nav>
 
@@ -84,59 +82,98 @@
 
 <section>
 
-  <div class="container">
-    <div class="row form">
-      <div class="col-8">
-        <form action="">
-          <table class="table">
-            <tr>
-              <th>Name Customer:</th>
-              <td>
-                <select  name="customerName">
-                  <option value="1">Nguyễn Thị Yến</option>
-                  <option value="2">Nguyễn Phan Anh</option>
-                  <option value="3">Trần Thị Mỹ</option>
-                  <option value="4">Phạm Thị Ngọc</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>Name Service:</th>
-              <td>
-                <select  name="serviceName">
-                  <option value="1">Villa</option>
-                  <option value="2">House</option>
-                  <option value="3">Room</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>DayCreate:</th>
-              <td><input type="text" name="contractDayCreate"></td>
-            </tr>
-            <tr>
-              <th>EndDay:</th>
-              <td><input type="text" name="contractEndDay"></td>
-            </tr>
-            <tr>
-              <th>Deposit:</th>
-              <td><input type="number" name="contractDeposit"></td>
-            </tr>
-            <tr>
-              <th>Total Cost:</th>
-              <td><input type="number" name="contractTotal_Cost"></td>
-            </tr>
-            <tr class="button">
-              <td><a href="" ><button class="btn-danger" type="button">Cancel</button></a></td>
-              <td><button type="submit" class="btn-success save">Save</button></td>
-            </tr>
-          </table>
-        </form>
+  <form class="px-4 py-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name </label>
+      <input type="text" class="form-control" id="name" placeholder="Nguyen Phan Anh" formControlName="name"
+             required minlength="6">
+
+      <div *ngIf="registerForm.get('name').invalid && registerForm.get('name')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('name').errors?.required">Name field is required</small>
+        <small class="text-danger" *ngIf="registerForm.get('name').errors?.minlength">Name must be at least 6
+          characters</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="serviceName">Service Name </label>
+      <input type="text" class="form-control" id="serviceName" placeholder="Villa PenHouse"
+             formControlName="serviceName"
+             required minlength="6">
+
+      <div *ngIf="registerForm.get('serviceName').invalid && registerForm.get('serviceName')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('serviceName').errors?.required">Service Name field is
+          required</small>
+        <small class="text-danger" *ngIf="registerForm.get('serviceName').errors?.minlength">Service Name must be at
+          least 6
+          characters</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="dayCreate">DayCreate</label>
+      <input type="text" class="form-control" id="dayCreate" placeholder="01/02/2004" formControlName="dayCreate"
+             required>
+
+      <div *ngIf="registerForm.get('dayCreate').invalid && registerForm.get('dayCreate')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('dayCreate').errors?.required">DayCreate field is
+          required</small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('dayCreate').errors?.invalidDate && registerForm.get('dayCreate').errors?.required == null">Invalid
+          date format (dd/MM/yyyy)</small>
       </div>
     </div>
-  </div>
-</section>
 
+    <div class="form-group">
+      <label for="endDay">EndDay</label>
+      <input type="text" class="form-control" id="endDay" placeholder="01/12/2004" formControlName="endDay"
+             required>
+
+      <div *ngIf="registerForm.get('endDay').invalid && registerForm.get('endDay')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('endDay').errors?.required">EndDay field is
+          required</small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('endDay').errors?.invalidDate && registerForm.get('endDay').errors?.required == null">Invalid
+          date format (dd/MM/yyyy)</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="deposit">Deposit</label>
+      <input type="number" class="form-control" id="deposit" placeholder="1000$" formControlName="deposit" required>
+
+      <div *ngIf="registerForm.get('deposit').invalid && registerForm.get('deposit')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('deposit').errors?.required">Deposit field is
+          required</small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('deposit').value<1000 && !registerForm.get('deposit').errors?.required">Deposit
+          must be more than 1000</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="total">Total Cost</label>
+      <input type="number" class="form-control" id="total" placeholder="2000$" formControlName="total" required>
+
+      <div *ngIf="registerForm.get('total').invalid && registerForm.get('total')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('total').errors?.required">Total field is
+          required</small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('total').value<2000 && !registerForm.get('total').errors?.required">Total
+          must be more than 2000</small>
+      </div>
+
+    </div>
+
+    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Sign in</button>
+
+  </form>
+
+</section>
 
 <footer>
 
