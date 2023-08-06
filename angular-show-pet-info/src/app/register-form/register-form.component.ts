@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -8,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
 
-  submitted = false;
 
   registerForm: FormGroup;
 
@@ -23,7 +21,7 @@ export class RegisterFormComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       country: ['', [Validators.required]],
-      age: ['', [Validators.required]],
+      age: ['', [Validators.required, Validators.min(18)]],
       gender: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]]
     });

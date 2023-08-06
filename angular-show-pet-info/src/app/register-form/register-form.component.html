@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<form class="px-4 py-3" [formGroup]="registerForm" (ngSubmit)="onSubmit(); submitted=true" >
+<form class="px-4 py-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
     <label for="email">Email </label>
@@ -34,7 +34,8 @@
 
     <div *ngIf="registerForm.get('email').invalid && registerForm.get('email')?.touched">
       <small class="text-danger" *ngIf="registerForm.get('email').errors?.required">Email field is required</small>
-      <small class="text-danger" *ngIf="registerForm.get('email').errors?.pattern">Email field is not true pattern</small>
+      <small class="text-danger" *ngIf="registerForm.get('email').errors?.pattern">Email field is not true
+        pattern</small>
 
     </div>
 
@@ -45,13 +46,12 @@
     <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
            required minlength="6">
 
-        <div *ngIf="registerForm.get('password').invalid && registerForm.get('password')?.touched">
-          <small class="text-danger" *ngIf="registerForm.get('password').errors?.required">Password field is
-            required</small>
-          <small class="text-danger" *ngIf="registerForm.get('password').errors?.minlength">Password must be at least 6
-            characters</small>
-        </div>
-
+    <div *ngIf="registerForm.get('password').invalid && registerForm.get('password')?.touched">
+      <small class="text-danger" *ngIf="registerForm.get('password').errors?.required">Password field is
+        required</small>
+      <small class="text-danger" *ngIf="registerForm.get('password').errors?.minlength">Password must be at least 6
+        characters</small>
+    </div>
 
 
   </div>
@@ -64,7 +64,8 @@
     <div *ngIf="registerForm.get('confirmPassword').invalid && registerForm.get('confirmPassword')?.touched">
       <small class="text-danger" *ngIf="registerForm.get('confirmPassword').errors?.required">Confirm Password field is
         required</small>
-      <small class="text-danger" *ngIf="registerForm.get('confirmPassword').errors?.minlength">Confirm Password must be at least 6
+      <small class="text-danger" *ngIf="registerForm.get('confirmPassword').errors?.minlength">Confirm Password must be
+        at least 6
         characters</small>
     </div>
 
@@ -88,13 +89,13 @@
 
   <div class="form-group">
     <label for="age">Age</label>
-    <input type="number" class="form-control" id="age" placeholder="Age" formControlName="age" required >
+    <input type="number" class="form-control" id="age" placeholder="Age" formControlName="age" required>
 
     <div *ngIf="registerForm.get('age').invalid && registerForm.get('age')?.touched">
       <small class="text-danger" *ngIf="registerForm.get('age').errors?.required">Age field is required</small>
+      <small class="text-danger" *ngIf="registerForm.get('age').value<18 && !registerForm.get('age').errors?.required">Age
+        must be more than 18</small>
     </div>
-
-
 
   </div>
 
@@ -115,7 +116,7 @@
       </div>
     </div>
 
-    <div *ngIf="registerForm.get('gender').invalid && submitted">
+    <div *ngIf="registerForm.get('gender').invalid ">
       <small class="text-danger" *ngIf="registerForm.get('gender').invalid">Gender field is required</small>
     </div>
 
@@ -123,16 +124,18 @@
 
   <div class="form-group">
     <label for="phone">Phone</label>
-    <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone" required pattern="^\+84\d{9,10}$">
+    <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone" required
+           pattern="^\+84\d{9,10}$">
 
     <div *ngIf="registerForm.get('phone').invalid && registerForm.get('phone')?.touched">
       <small class="text-danger" *ngIf="registerForm.get('phone').errors?.required">Phone field is required</small>
-      <small class="text-danger" *ngIf="registerForm.get('phone').errors?.pattern">Phone field is not true pattern</small>
+      <small class="text-danger" *ngIf="registerForm.get('phone').errors?.pattern">Phone field is not true
+        pattern</small>
     </div>
 
   </div>
 
-  <button type="submit"   class="btn btn-primary">Sign in</button>
+  <button type="submit" [disabled]="!registerForm.valid"  class="btn btn-primary">Sign in</button>
 
 </form>
 
