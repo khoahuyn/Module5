@@ -98,16 +98,19 @@
     </div>
 
     <div class="form-group">
-      <label for="birthday">Birthday </label>
-      <input type="text" class="form-control" id="birthday" placeholder="01/02/2004" formControlName="birthday">
+      <label for="birthday">Birthday</label>
+      <input type="text" class="form-control" id="birthday" placeholder="01/02/2004" formControlName="birthday"
+             required>
 
       <div *ngIf="registerForm.get('birthday').invalid && registerForm.get('birthday')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('birthday').errors?.required">Birthday field is
+          required</small>
         <small class="text-danger"
-               *ngIf="registerForm.get('birthday').errors?.invalidDate">Birthday field is
-          required && Invalid date format (dd/MM/yyyy)</small>
+               *ngIf="registerForm.get('birthday').errors?.invalidDate && registerForm.get('birthday').errors?.required == null">Invalid
+          date format (dd/MM/yyyy)</small>
       </div>
-
     </div>
+
 
     <div class="form-group">
       <label for="cmnd">CMND </label>

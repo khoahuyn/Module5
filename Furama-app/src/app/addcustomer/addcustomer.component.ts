@@ -18,7 +18,7 @@ export class AddcustomerComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(6)]],
-      birthday: ['', [datePatternValidator]],
+      birthday: ['', [Validators.required, datePatternValidator]],
       email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}')]],
       cmnd: ['', [Validators.required, Validators.pattern(/^\d{9}$|^\d{12}$/)]],
       phone: ['', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]],
@@ -33,5 +33,4 @@ export class AddcustomerComponent implements OnInit {
       console.log(this.registerForm.value);
     }
   }
-
 }

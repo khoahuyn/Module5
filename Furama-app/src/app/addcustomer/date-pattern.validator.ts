@@ -8,5 +8,10 @@ export const datePatternValidator: ValidatorFn = (control: AbstractControl) => {
     return { invalidDate: true };
   }
 
+  const value = control.value;
+
+  if (value && !/^\d{2}\/\d{2}\/\d{4}$/.test(value)) {
+    return { invalidDate: true };
+  }
   return null;
 };
