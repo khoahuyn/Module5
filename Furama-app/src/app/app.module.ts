@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import {ServiceComponent} from './addservice/service.component';
+import {AddserviceComponent} from './addservice/addservice.component';
 import {ListserviceComponent} from './listservice/listservice.component';
 import {EditserviceComponent} from './editservice/editservice.component';
 import {ListcustomerComponent} from './listcustomer/listcustomer.component';
@@ -22,7 +22,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    ServiceComponent,
+    AddserviceComponent,
     ListserviceComponent,
     EditserviceComponent,
     ListcustomerComponent,
