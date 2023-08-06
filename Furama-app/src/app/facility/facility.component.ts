@@ -16,7 +16,7 @@ export class FacilityComponent implements OnInit {
       serviceCapacity: 4,
       serviceCost: 2000,
       serviceRentType: 'Month',
-      serviceStatus: 'TYPE 1'
+      serviceStatus: 'USE'
     },
     {
       serviceName: 'Villa',
@@ -25,7 +25,7 @@ export class FacilityComponent implements OnInit {
       serviceCapacity: 8,
       serviceCost: 12000,
       serviceRentType: 'Year',
-      serviceStatus: 'VIP'
+      serviceStatus: 'NOT USE'
     },
     {
       serviceName: 'Single Room',
@@ -34,16 +34,16 @@ export class FacilityComponent implements OnInit {
       serviceCapacity: 2,
       serviceCost: 500,
       serviceRentType: 'Day',
-      serviceStatus: 'TYPE 2'
+      serviceStatus: 'USE'
     },
     {
       serviceName: 'Presidential House',
       serviceArea: 5000,
       serviceFloor: 2,
-      serviceCapacity: 1,
+      serviceCapacity: 3,
       serviceCost: 3500,
       serviceRentType: 'Hour',
-      serviceStatus: 'LUXURY'
+      serviceStatus: 'NOT USE'
     },
 
 
