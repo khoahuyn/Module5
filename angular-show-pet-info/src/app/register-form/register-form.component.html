@@ -124,7 +124,7 @@
 
   <div class="form-group">
     <label for="phone">Phone</label>
-    <input type="text" class="form-control" id="phone" placeholder="01005889" formControlName="phone" required
+    <input type="text" class="form-control" id="phone" placeholder="+8469005889" formControlName="phone" required
            pattern="^\+84\d{9,10}$">
 
     <div *ngIf="registerForm.get('phone').invalid && registerForm.get('phone')?.touched">
