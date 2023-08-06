@@ -68,15 +68,13 @@
 
   <nav>
     <ul>
-      <li><a href="Home.html">HOME</a></li>
-      <li><a>THE RESORT</a></li>
-      <li><a>ROOMS & SUITES</a></li>
-      <li><a HREF="Contract.html">CONTRACT</a></li>
-      <li><a HREF="ListContract.html">LIST CONTRACT</a></li>
-      <li><a HREF="Service.html">SERVICE</a></li>
-      <li><a HREF="ListService.html">LIST SERVICE</a></li>
-      <li><a HREF="Customer.html">CUSTOMER</a></li>
-      <li><a HREF="ListCustomer.html">LIST CUSTOMER</a></li>
+      <li><a href="">HOME</a></li>
+      <li><a HREF="">ADD CONTRACT</a></li>
+      <li><a HREF="">LIST CONTRACT</a></li>
+      <li><a HREF="">ADD SERVICE</a></li>
+      <li><a HREF="">LIST SERVICE</a></li>
+      <li><a HREF="">ADD CUSTOMER</a></li>
+      <li><a HREF="">LIST CUSTOMER</a></li>
     </ul>
   </nav>
 
@@ -101,12 +99,12 @@
 
     <div class="form-group">
       <label for="birthday">Birthday </label>
-      <input type="text" class="form-control" id="birthday" placeholder="01/02/2004" formControlName="birthday"
-             required >
+      <input type="text" class="form-control" id="birthday" placeholder="01/02/2004" formControlName="birthday">
 
       <div *ngIf="registerForm.get('birthday').invalid && registerForm.get('birthday')?.touched">
-        <small class="text-danger" *ngIf="registerForm.get('birthday').errors?.required">Birthday field is
-          required</small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('birthday').errors?.invalidDate">Birthday field is
+          required && Invalid date format (dd/MM/yyyy)</small>
       </div>
 
     </div>
@@ -184,7 +182,7 @@
 
     </div>
 
-    <button type="submit" [disabled]="!registerForm.valid"  class="btn btn-primary">Sign in</button>
+    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Sign in</button>
 
   </form>
 

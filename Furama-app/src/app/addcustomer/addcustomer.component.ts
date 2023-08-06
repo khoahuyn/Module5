@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {datePatternValidator} from './date-pattern.validator';
 
 @Component({
   selector: 'app-addcustomer',
@@ -17,7 +18,7 @@ export class AddcustomerComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(6)]],
-      birthday: ['', [Validators.required]],
+      birthday: ['', [datePatternValidator]],
       email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}')]],
       cmnd: ['', [Validators.required, Validators.pattern(/^\d{9}$|^\d{12}$/)]],
       phone: ['', [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]],
