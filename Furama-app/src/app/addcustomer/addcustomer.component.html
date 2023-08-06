@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CREATE THE NEW CUSTOMER</title>
   <style>
-    header nav{
+    header nav {
       background-color: #007A65;
       color: #fff;
       text-align: center;
@@ -29,21 +29,21 @@
 
     footer {
       background-color: #addccf;
-      color:  #333333;
+      color: #333333;
       text-align: center;
       padding: 40px;
     }
 
-    .footer-contact-list{
+    .footer-contact-list {
       list-style: none;
       text-align: left;
     }
 
-    .footer-item-contact i{
+    .footer-item-contact i {
       margin-right: 20px;
     }
 
-    .chunoi{
+    .chunoi {
       color: #cbbe73;
       font-family: Playfair Display;
       font-size: 48px;
@@ -51,11 +51,11 @@
     }
 
 
-
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
 <header>
@@ -84,56 +84,110 @@
 
 <section>
 
-  <div class="container">
-    <div class="row form">
-      <div class="col-8">
-        <form action="">
-          <table class="table">
-            <tr>
-              <th>Name:</th>
-              <td><input type="text" name="customerName"></td>
-            </tr>
-            <tr>
-              <th>BirthDay:</th>
-              <td><input type="text" name="customerBirthDay"></td>
-            </tr>
-            <tr>
-              <th>CMND:</th>
-              <td><input type="text" name="customerCMND"></td>
-            </tr>
-            <tr>
-              <th>Email:</th>
-              <td><input type="text" name="customerEmail"></td>
-            </tr>
-            <tr>
-              <th>PhoneNumber:</th>
-              <td><input type="text" name="customerNumber"></td>
-            </tr>
-            <tr>
-              <th>Customer type :</th>
-              <td>
-                <select name="customerType">
-                  <option value="1">Diamond</option>
-                  <option value="2">Platinium</option>
-                  <option value="3">Gold</option>
-                  <option value="4">Silver</option>
-                  <option value="5">Member</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>Address:</th>
-              <td><input type="text" name="customerAddress"></td>
-            </tr>
-            <tr class="button">
-              <td><a href="" ><button class="btn-danger" type="button">Cancel</button></a></td>
-              <td><button type="submit" class="btn-success save">Save</button></td>
-            </tr>
-          </table>
-        </form>
+  <form class="px-4 py-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name </label>
+      <input type="text" class="form-control" id="name" placeholder="Nguyen Phan Anh" formControlName="name"
+             required minlength="6">
+
+      <div *ngIf="registerForm.get('name').invalid && registerForm.get('name')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('name').errors?.required">Name field is required</small>
+        <small class="text-danger" *ngIf="registerForm.get('name').errors?.minlength">Name must be at least 6
+          characters</small>
       </div>
+
     </div>
-  </div>
+
+    <div class="form-group">
+      <label for="birthday">Birthday </label>
+      <input type="text" class="form-control" id="birthday" placeholder="01/02/2004" formControlName="birthday"
+             required >
+
+      <div *ngIf="registerForm.get('birthday').invalid && registerForm.get('birthday')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('birthday').errors?.required">Birthday field is
+          required</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="cmnd">CMND </label>
+      <input type="text" class="form-control" id="cmnd" placeholder="123456789" formControlName="cmnd"
+             required pattern="^\d{9}$|^\d{12}$">
+
+      <div *ngIf="registerForm.get('cmnd').invalid && registerForm.get('cmnd')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('cmnd').errors?.required">CMND field is required</small>
+        <small class="text-danger" *ngIf="registerForm.get('cmnd').errors?.pattern">CMND field is not true
+          pattern</small>
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email </label>
+      <input type="email" class="form-control" id="email" placeholder="email@example.com" formControlName="email"
+             required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+
+      <div *ngIf="registerForm.get('email').invalid && registerForm.get('email')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('email').errors?.required">Email field is required</small>
+        <small class="text-danger" *ngIf="registerForm.get('email').errors?.pattern">Email field is not true
+          pattern</small>
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone" required
+             pattern="^\+84\d{9,10}$">
+
+      <div *ngIf="registerForm.get('phone').invalid && registerForm.get('phone')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('phone').errors?.required">Phone field is required</small>
+        <small class="text-danger" *ngIf="registerForm.get('phone').errors?.pattern">Phone field is not true
+          pattern</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="customerType">Customer Type</label>
+      <select class="form-control" id="customerType" name="customerType" formControlName="customerType" required>
+        <option value="">Select Customer Type</option>
+        <option value="Diamond">Diamond</option>
+        <option value="Platinum">Platinum</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Member">Member</option>
+      </select>
+
+      <div *ngIf="registerForm.get('customerType').invalid && registerForm.get('customerType')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('customerType').errors?.required">Customer Type field is
+          required</small>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" placeholder="254 Ngô Quyền" formControlName="address"
+             required minlength="6">
+
+      <div *ngIf="registerForm.get('address').invalid && registerForm.get('address')?.touched">
+        <small class="text-danger" *ngIf="registerForm.get('address').errors?.required">Address field is
+          required</small>
+        <small class="text-danger" *ngIf="registerForm.get('address').errors?.minlength">Address must be at least 6
+          characters</small>
+      </div>
+
+    </div>
+
+    <button type="submit" [disabled]="!registerForm.valid"  class="btn btn-primary">Sign in</button>
+
+  </form>
+
 </section>
 
 
@@ -173,6 +227,10 @@
 </footer>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 </html>

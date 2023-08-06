@@ -9,7 +9,7 @@ import {NameCardComponent} from './name-card/name-card.component';
 import {ProgressBarComponent} from './progress-bar/progress-bar.component';
 import {CountdownTimerComponent} from './countdown-timer/countdown-timer.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { RegisterFormComponent } from './register-form/register-form.component';
+import {RegisterFormComponent} from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
