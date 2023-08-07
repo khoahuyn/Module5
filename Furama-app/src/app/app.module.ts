@@ -12,11 +12,24 @@ import {EditcustomerComponent} from './editcustomer/editcustomer.component';
 import {AddcustomerComponent} from './addcustomer/addcustomer.component';
 import {AddcontractComponent} from './addcontract/addcontract.component';
 import {ListcontractComponent} from './listcontract/listcontract.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 import {FacilityComponent} from './facility/facility.component';
 import {CustomerComponent} from './customer/customer.component';
 import {ContractComponent} from './contract/contract.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+
+
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'add-service', component: AddserviceComponent},
+  {path: 'add-contract', component: AddcontractComponent},
+  {path: 'add-customer', component: AddcustomerComponent},
+  {path: 'facility', component: FacilityComponent},
+  {path: 'customer', component: CustomerComponent},
+  {path: 'contract', component: ContractComponent},
+];
 
 @NgModule({
   declarations: [
@@ -38,7 +51,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

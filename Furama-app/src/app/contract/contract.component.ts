@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Contract} from './contract';
 
 @Component({
-  selector: 'app-contract',
+  selector: 'app-z',
   templateUrl: './contract.component.html',
   styleUrls: ['./contract.component.css']
 })

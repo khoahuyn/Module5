@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {datePatternValidator, totalGreaterThanDepositValidator} from './date-pattern.validator';
 
 @Component({
   selector: 'app-addcontract',
@@ -18,11 +17,11 @@ export class AddcontractComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(6)]],
       serviceName: ['', [Validators.required, Validators.minLength(6)]],
-      dayCreate: ['', [Validators.required, datePatternValidator]],
-      endDay: ['', [Validators.required, datePatternValidator]],
+      dayCreate: ['', [Validators.required]],
+      endDay: ['', [Validators.required]],
       deposit: ['', [Validators.required, Validators.min(1000)]],
       total: ['', [Validators.required, Validators.min(2000)]],
-    }, { validator: totalGreaterThanDepositValidator() });
+    });
   }
 
   onSubmit(): void {
