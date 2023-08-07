@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CREATE THE NEW CONTRACT</title>
   <style>
-    header nav{
+    header nav {
       background-color: #007A65;
       color: #fff;
       text-align: center;
@@ -29,21 +29,21 @@
 
     footer {
       background-color: #addccf;
-      color:  #333333;
+      color: #333333;
       text-align: center;
       padding: 40px;
     }
 
-    .footer-contact-list{
+    .footer-contact-list {
       list-style: none;
       text-align: left;
     }
 
-    .footer-item-contact i{
+    .footer-item-contact i {
       margin-right: 20px;
     }
 
-    .chunoi{
+    .chunoi {
       color: #cbbe73;
       font-family: Playfair Display;
       font-size: 48px;
@@ -51,11 +51,11 @@
     }
 
 
-
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
 <header>
@@ -129,17 +129,16 @@
 
     <div class="form-group">
       <label for="endDay">EndDay</label>
-      <input type="text" class="form-control" id="endDay" placeholder="01/12/2004" formControlName="endDay"
-             required>
+      <input type="text" class="form-control" id="endDay" placeholder="01/12/2004" formControlName="endDay" required>
 
-      <div *ngIf="registerForm.get('endDay').invalid && registerForm.get('endDay')?.touched">
-        <small class="text-danger" *ngIf="registerForm.get('endDay').errors?.required">EndDay field is
-          required</small>
+      <div *ngIf="registerForm.get('endDay').invalid && registerForm.get('endDay').touched">
+        <small class="text-danger" *ngIf="registerForm.get('endDay').errors?.required">EndDay field is required</small>
         <small class="text-danger"
                *ngIf="registerForm.get('endDay').errors?.invalidDate && registerForm.get('endDay').errors?.required == null">Invalid
           date format (dd/MM/yyyy)</small>
       </div>
     </div>
+
 
     <div class="form-group">
       <label for="deposit">Deposit</label>
@@ -159,15 +158,19 @@
       <label for="total">Total Cost</label>
       <input type="number" class="form-control" id="total" placeholder="2000$" formControlName="total" required>
 
-      <div *ngIf="registerForm.get('total').invalid && registerForm.get('total')?.touched">
-        <small class="text-danger" *ngIf="registerForm.get('total').errors?.required">Total field is
-          required</small>
+      <div *ngIf="registerForm.get('total').invalid && registerForm.get('total').touched">
+        <small class="text-danger" *ngIf="registerForm.get('total').errors?.required">Total field is required</small>
         <small class="text-danger"
-               *ngIf="registerForm.get('total').value<2000 && !registerForm.get('total').errors?.required">Total
-          must be more than 2000</small>
+               *ngIf="registerForm.get('total').value < 2000 && !registerForm.get('total').errors?.required">
+          Total must be more than 2000
+        </small>
+        <small class="text-danger"
+               *ngIf="registerForm.get('total').value < registerForm.get('deposit').value && !registerForm.get('total').errors?.required">
+          Total must be more than Deposit
+        </small>
       </div>
-
     </div>
+
 
     <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Sign in</button>
 
@@ -211,6 +214,10 @@
 </footer>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 </html>
