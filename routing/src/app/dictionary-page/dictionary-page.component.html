@@ -1,0 +1,6 @@
+<h2>Từ điển Tiếng Anh - Tiếng Việt</h2>
+<ul>
+  <li *ngFor="let word of words">
+    <a [routerLink]="['/detail', word.word]">{{ word.word }}</a>
+  </li>
+</ul>
