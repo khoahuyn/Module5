@@ -16,10 +16,7 @@ export class DictionaryDetailComponent implements OnInit {
     private dictionaryService: DictionaryService) {}
 
   ngOnInit(): void {
-    const wordParam = this.route.snapshot.paramMap.get('word');
-    if (wordParam) {
-      const mean = this.dictionaryService.translate(wordParam);
-      this.word = { word: wordParam, mean: mean };
-    }
+    this.word = this.dictionaryService.findByIWord(this.route.snapshot.params.word);
+
   }
 }

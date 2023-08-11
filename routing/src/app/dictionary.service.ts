@@ -18,8 +18,7 @@ export class DictionaryService {
     return this.words;
   }
 
-  translate(word: string): string {
-    const foundWord = this.words.find((w) => w.word === word);
-    return foundWord ? foundWord.mean : 'Không tìm thấy nghĩa.';
+  findByIWord(word: string): IWord {
+    return this.words.find(obj => obj.word === word);
   }
 }
