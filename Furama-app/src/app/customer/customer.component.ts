@@ -7,7 +7,7 @@ import {Customer} from './customer';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-
+  selectedCustomer: any;
   customers: Customer[] = [
     {
       customerName: 'Nguyễn Thị Yến',
@@ -54,4 +54,29 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDeleteModal(customer: any, i: number): void {
+    this.selectedCustomer = customer;
+    const modal = document.getElementById(`deleteModal${i}`);
+    if (modal) {
+      modal.classList.add('show'); // Thêm class 'show' để hiển thị modal
+      modal.style.display = 'block'; // Thêm dòng này để hiển thị modal
+    }
+    console.log('Thực hiện');
+  }
+  closeDeleteModal(): void {
+    this.selectedCustomer = null;
+    const modal = document.querySelector('.modal.show'); // Chọn modal hiện tại đang được hiển thị
+    if (modal) {
+      modal.classList.remove('show');
+      modal.classList.add('d-none'); // Ẩn modal bằng cách thêm lớp d-none
+    }
+  }
+
+  deleteCustomer(): void {
+    if (this.selectedCustomer) {
+      // Xóa khách hàng và cập nhật danh sách
+      // ...
+      this.closeDeleteModal();
+    }
+  }
 }

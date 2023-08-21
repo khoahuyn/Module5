@@ -8,7 +8,7 @@ import {Facility} from './facility';
 })
 export class FacilityComponent implements OnInit {
 
-  facilitys: Facility[] = [
+  facilities: Facility[] = [
     {
       serviceName: 'Double Room',
       serviceArea: 2000,

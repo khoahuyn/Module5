@@ -1,0 +1,18 @@
+/* CSS cho modal */
+.modal-backdrop.show {
+  opacity: 0.7;
+  background-color: #000;
+}
+
+.modal {
+  display: block;
+}
+
+.modal.fade .modal-dialog {
+  transform: translate(0, -25%);
+}
+
+
+
+
+

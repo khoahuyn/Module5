@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from 'src/app/service/product.service';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
@@ -13,29 +13,50 @@ export class ProductUpdateComponent implements OnInit {
   productForm: FormGroup;
   id: number;
 
-  // tslint:disable-next-line:variable-name max-line-length
   constructor(private _formBuilder: FormBuilder, private _productService: ProductService, private _activatedRoute: ActivatedRoute, private _router: Router) {
+    this._activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.id = +paramMap.get('id');
+      this.getProduct(this.id);
+    });
   }
 
   ngOnInit(): void {
-    this._activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('id');
-      const product = this._productService.findById(this.id);
-    });
-    this.productForm = this._formBuilder.group({
-      id: [this._productService.findById(this.id).id],
-      name: [this._productService.findById(this.id).name],
-      price: [this._productService.findById(this.id).price],
-      description: [this._productService.findById(this.id).description]
+    // this._activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+    //   this.id = +paramMap.get('id');
+    //   const product = this._productService.findById(this.id);
+    // });
+    // this.productForm = this._formBuilder.group({
+    //   id: [this._productService.findById(this.id).id],
+    //   name: [this._productService.findById(this.id).name],
+    //   price: [this._productService.findById(this.id).price],
+    //   description: [this._productService.findById(this.id).description]
+    // });
+  }
+
+  // submit() {
+  //   const product = this.productForm.value;
+  //   console.log(product);
+  //   // @ts-ignore
+  //   this._productService.updateProduct(product);
+  //   alert('Update thành công');
+  //   this._router.navigate(['/product/list']);
+  // }
+
+  getProduct(id: number) {
+    return this._productService.findById(id).subscribe(category => {
+      this.productForm = new FormGroup({
+        name: new FormControl(category.name),
+      });
     });
   }
 
-  submit() {
+  updateProduct(id: number) {
     const product = this.productForm.value;
-    console.log(product);
-    // @ts-ignore
-    this._productService.updateProduct(product);
-    alert('Update thành công');
-    this._router.navigate(['/product/list']);
+    this._productService.updateProduct(id, product).subscribe(() => {
+      alert('Cập nhật thành công');
+    }, e => {
+      console.log(e);
+    });
   }
+
 }
