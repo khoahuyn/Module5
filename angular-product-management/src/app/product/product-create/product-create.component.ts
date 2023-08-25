@@ -25,12 +25,10 @@ export class ProductCreateComponent implements OnInit {
   onSubmit() {
     const product = this.productForm.value;
     this.productService.saveProduct(product).subscribe(() => {
-      this.productForm.reset();
+      this.router.navigate(['']);
       alert('Tạo thành công');
     }, e => {
       console.log(e);
     });
-    this.productForm.reset();
-    this.router.navigate(['/product/list']);
   }
 }

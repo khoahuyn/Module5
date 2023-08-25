@@ -1,5 +1,5 @@
 {
-  "name": "angular-show-pet-info",
+  "name": "module5-test",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,7 +22,7 @@
     "ngx-pagination": "^5.1.1",
     "querystring": "^0.2.1",
     "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "name": "DucNguyen",
+      "email": "d@gmail.com",
+      "category": {
+        "id": 3,
+        "name": "diamond"
+      },
+      "dateOfBirthday": "2011-12-31",
+      "phoneNumber": "8448006791",
+      "address": "Hòa Vang",
+      "id": 1
+    },
+    {
+      "name": "Delli23",
+      "email": "anhtuan@gmail.com",
+      "category": {
+        "id": 3,
+        "name": "diamond"
+      },
+      "dateOfBirthday": "2023-08-17",
+      "phoneNumber": "8432513632",
+      "address": "254 Ngô Sĩ Liên",
+      "id": 4
+    },
+    {
+      "name": null,
+      "email": null,
+      "category": {
+        "id": 2,
+        "name": "gold"
+      },
+      "dateOfBirthday": null,
+      "phoneNumber": null,
+      "address": null,
+      "id": 5
+    },
+    {
+      "name": null,
+      "email": null,
+      "category": {
+        "id": 3,
+        "name": "diamond"
+      },
+      "dateOfBirthday": null,
+      "phoneNumber": null,
+      "address": null,
+      "id": 6
+    },
+    {
+      "name": null,
+      "email": null,
+      "category": {
+        "id": 3,
+        "name": "diamond"
+      },
+      "dateOfBirthday": null,
+      "phoneNumber": null,
+      "address": null,
+      "id": 8
+    },
+    {
+      "name": null,
+      "email": null,
+      "category": {
+        "id": 3,
+        "name": "diamond"
+      },
+      "dateOfBirthday": "2023-08-26",
+      "phoneNumber": null,
+      "address": null,
+      "id": 10
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "sliver"
+    },
+    {
+      "id": 2,
+      "name": "gold"
+    },
+    {
+      "id": 3,
+      "name": "diamond"
+    }
+  ]
+}

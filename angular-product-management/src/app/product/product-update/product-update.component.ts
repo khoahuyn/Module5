@@ -43,9 +43,12 @@ export class ProductUpdateComponent implements OnInit {
   // }
 
   getProduct(id: number) {
-    return this._productService.findById(id).subscribe(category => {
+    return this._productService.findById(id).subscribe(product => {
       this.productForm = new FormGroup({
-        name: new FormControl(category.name),
+        name: new FormControl(product.name),
+        id: new FormControl(product.id),
+        price: new FormControl(product.price),
+        description: new FormControl(product.description),
       });
     });
   }
@@ -53,6 +56,7 @@ export class ProductUpdateComponent implements OnInit {
   updateProduct(id: number) {
     const product = this.productForm.value;
     this._productService.updateProduct(id, product).subscribe(() => {
+      this._router.navigate(['']);
       alert('Cập nhật thành công');
     }, e => {
       console.log(e);

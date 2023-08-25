@@ -14,22 +14,22 @@ export class ProductService {
   }
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:3000/' + 'products');
+    return this.http.get<Product[]>(API_URL );
   }
 
   saveProduct(product): Observable<Product> {
-    return this.http.post<Product>('http://localhost:3000/' + 'products', product);
+    return this.http.post<Product>(API_URL , product);
   }
 
   findById(id: number): Observable<Product> {
-    return this.http.get<Product>('http://localhost:3000/' + 'products/' + id);
+    return this.http.get<Product>(API_URL + '/' + id);
   }
 
   updateProduct(id: number, product: Product) {
-    return this.http.put<Product>('http://localhost:3000/' + 'products/' + product.id, product);
+    return this.http.put<Product>(API_URL + '/' + product.id, product);
   }
 
   delete(id: number) {
-    return this.http.delete<Product>('http://localhost:3000/' + 'products/' + id);
+    return this.http.delete<Product>(API_URL + '/' + id);
   }
 }

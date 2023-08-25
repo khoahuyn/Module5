@@ -40,13 +40,17 @@ export class ProductDeleteComponent implements OnInit {
     return this.productService.findById(id).subscribe(product => {
       this.productForm = new FormGroup({
         name: new FormControl(product.name),
+        id: new FormControl(product.id),
+        price: new FormControl(product.price),
+        description: new FormControl(product.description),
       });
     });
   }
 
   deleteProduct(id: number) {
     this.productService.delete(id).subscribe(() => {
-      this.router.navigate(['/product/list']);
+      this.router.navigate(['']);
+      alert('Xoa thanh cong')
     }, e => {
       console.log(e);
     });

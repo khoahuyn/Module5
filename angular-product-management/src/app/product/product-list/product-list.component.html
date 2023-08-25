@@ -5,13 +5,15 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
-    <td>Thao tác</td>
+    <td>Mô tả</td>
+    <td colspan="2"></td>
   </tr>
-  <tr *ngFor="let product of products; let i=index ;" routerLink="produc.t/edit/:id">
+  <tr *ngFor="let product of products; let i=index ;">
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
-    <td routerLink="product/delete/:id">Xoá</td>
+    <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>
+    <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
   </tr>
 </table>

@@ -10,6 +10,7 @@ import {ProgressBarComponent} from './progress-bar/progress-bar.component';
 import {CountdownTimerComponent} from './countdown-timer/countdown-timer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RegisterFormComponent} from './register-form/register-form.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {RegisterFormComponent} from './register-form/register-form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
