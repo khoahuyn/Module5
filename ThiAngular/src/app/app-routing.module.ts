@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {NewListComponent} from "./new/new-list/new-list.component";
+import {NewCreateComponent} from "./new/new-create/new-create.component";
 
 
 const routes: Routes = [
   {
-    path: 'product/list',
-    component:
+    path: 'new/list',
+    component:NewListComponent
   },
   {
-    path: 'product/create',
-    component:
-  },
-  {
-    path: 'product/update/:id',
-    component:
+    path: 'new/create',
+    component:NewCreateComponent
   }
 ];
 

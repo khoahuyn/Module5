@@ -1,0 +1,137 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "name": "Can ban 1",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 1,
+        "name": "Can ban"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 64,
+      "cost": 900000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "2003-08-06",
+      "where": "Dong Nam",
+      "status": "Dang rao"
+    },
+    {
+      "id": 2,
+      "name": "Can mua 2",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 2,
+        "name": "Can mua"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 31,
+      "cost": 810000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "2013-10-26",
+      "where": "Dong",
+      "status": "Chua duyet"
+    },
+    {
+      "id": 3,
+      "name": "Can ban 3",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 1,
+        "name": "Can ban"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 97,
+      "cost": 400000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "2005-09-01",
+      "where": "Tay",
+      "status": "Dang rao"
+    },
+    {
+      "id": 4,
+      "name": "Cho thue 4",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 3,
+        "name": "Cho thue"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 85,
+      "cost": 560000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "2023-11-11",
+      "where": "Nam",
+      "status": "Chua duyet"
+    },
+    {
+      "id": 5,
+      "name": "Can thue 5",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 4,
+        "name": "Can thue"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 52,
+      "cost": 111000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "1999-02-04",
+      "where": "Bac",
+      "status": "Dang rao"
+    },
+    {
+      "id": 6,
+      "name": "Can thue 6",
+      "type": "Nha Dat",
+      "local": "Da Nang",
+      "category": {
+        "id": 4,
+        "name": "Can thue"
+      },
+      "address": "Quan Lien Chieu",
+      "area": 100,
+      "cost": 5600000000,
+      "description": "Can ho moi mua thiet bi hien dai",
+      "date": "2003-01-04",
+      "where": "Tay Bac",
+      "status": "Dang rao"
+    },
+    {
+      "type": "",
+      "local": "",
+      "category": "",
+      "status": "",
+      "address": "",
+      "area": "",
+      "where": "",
+      "name": "",
+      "description": "",
+      "cost": "",
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Can ban"
+    },
+    {
+      "id": 2,
+      "name": "Can mua"
+    },
+    {
+      "id": 3,
+      "name": "Cho thue"
+    },
+    {
+      "id": 4,
+      "name": "Can thue"
+    }
+  ]
+}
