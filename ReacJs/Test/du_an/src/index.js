@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Sign from "./sign";
 import "bootstrap/dist/css/bootstrap.css";
-import Car from "./Car";
+import  {Counter} from "./Counter";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <React.StrictMode>
-    <App />
+    {/*<App />*/}
     {/*<Sign />*/}
-    {/*<Car/>*/}
+    <Counter/>
   </React.StrictMode>
 
 

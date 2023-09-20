@@ -4,10 +4,20 @@ export class Student extends React.Component {
    constructor() {
       super();
       this.state={
-         id:[1,2,3,4],
-         name:['Tay','Tuan','Tan','Hoc'],
-         age:[30,32,36,38],
-         address:['Ha Noi','TPHCM','Da Nang','Hai Phong']
+         students: [
+            {
+               id: 1,
+               name: 'Khoa',
+               address: 'Da Nang',
+               age: 20
+            },
+            {
+               id: 2,
+               name: 'Nguyen Anh',
+               address: 'Quang Nam',
+               age: 19
+            }
+         ]
       }
 
    }
@@ -27,12 +37,12 @@ export class Student extends React.Component {
                 </thead>
 
                 <tbody>
-                {this.state.id.map((id, index) => (
-                    <tr key={id}>
-                       <td>{id}</td>
-                       <td>{this.state.name[index]}</td>
-                       <td>{this.state.age[index]}</td>
-                       <td>{this.state.address[index]}</td>
+                {this.state.students.map((student) => (
+                    <tr >
+                       <td>{student.id}</td>
+                       <td>{student.name}</td>
+                       <td>{student.age}</td>
+                       <td>{student.address}</td>
                     </tr>
                 ))}
 
