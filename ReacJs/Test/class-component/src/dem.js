@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {Increase} from "./dem";
+import React, { useState} from "react";
 
 
 
-export function State() {
-    const [num1,setNum1]=Increase(1);
-    const [num2,setNum2]=Increase(2);
+export function Increase() {
+    const [num1,setNum1]=useState(1);
+    // const [num2,setNum2]=useState(2);
     // const [count,setCount]=useState(50);
 
 
@@ -26,14 +25,11 @@ export function State() {
     //     }
     // },[count])
 
-    return(
-        <>
-            <h2>Count: {num1}</h2>
-            <button onClick={setNum1}>Add1</button>
-            <h2>Count: {num2}</h2>
-            <button onClick={setNum2}>Add2</button>
+    function useIncrease() {
+        setNum1(prevState => prevState+1);
+    }
 
-            {/*<h1>Count down from {count}</h1>*/}
-        </>
+    return(
+        [num1,useIncrease]
     );
 }

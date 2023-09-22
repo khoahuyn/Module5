@@ -4,13 +4,15 @@ import {Student} from "./Student";
 import React from "react";
 import {Todo} from "./Todo";
 import {State} from "./State";
+import {Test} from "./Test";
 
 function App() {
   return (
     <div className="App">
       {/*<Student/>*/}
       {/*<Todo/>*/}
-      <State/>
+      {/*<State/>*/}
+      <Test/>
     </div>
   );
 }
