@@ -1,0 +1,25 @@
+label {
+  display: block;
+}
+
+.form-control {
+  padding-bottom: 2%;
+}
+
+.form-group input {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.text-danger {
+  color: darkblue;
+  margin: 0;
+}
+
+form{
+  text-align: center;
+}
+
+.form-group{
+  margin-top: 30px;
+}
