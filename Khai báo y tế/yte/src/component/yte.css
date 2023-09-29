@@ -1,0 +1,19 @@
+.form-group .form-input input{
+    width: 350px;
+    border: 2px solid rgba(0, 0, 0, 0.54);
+    border-radius: 5px;
+}
+
+.form-group .form-input .text-danger{
+    color: red;
+}
+
+form .form-group{
+    margin-top:7px;
+}
+
+.form-group .button{
+    background-color: darkblue;
+    color: white;
+    border-radius: 2px;
+}
