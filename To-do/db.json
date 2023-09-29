@@ -1,0 +1,24 @@
+{
+  "ips": [
+    {
+      "id": 1,
+      "name": "Iphone14"
+    },
+    {
+      "id": 2,
+      "name": "Iphone14 Pro max"
+    },
+    {
+      "id": 3,
+      "name": "Iphone15"
+    },
+    {
+      "id": 4,
+      "name": "Loi"
+    },
+    {
+      "id": 5,
+      "name": "ok"
+    }
+  ]
+}
