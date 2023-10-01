@@ -40,7 +40,7 @@ export function Update() {
             console.log(e)
         }
     }
-
+    console.log("Value", values);
     return (
         <Formik initialValues=
                     {{
@@ -55,11 +55,11 @@ export function Update() {
             // })}
 
 
-                onSubmit={(values => {
+                onSubmit={(a => {
                     const update = async (book) => {
                         try {
                             const result = await axios.put('http://localhost:8080/books/' + id, book)
-                            setValues(result.data);
+                            console.log(book)
                         } catch (e) {
                             console.log(e)
                         }
