@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import './list.css';
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {toast} from "react-toastify";
 
 
 export function Library() {
     const [books, setBooks] = useState([])
-    const navigate = useNavigate();
 
     useEffect(() => {
         findAll();
@@ -22,12 +21,12 @@ export function Library() {
         }
     }
 
-    const handleDelete=async (id)=> {
+    const handleDelete = (id) => {
         try {
-            const result = await axios.delete('http://localhost:8080/books/'+id)
+            axios.delete('http://localhost:8080/books/' + id)
+            setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
             toast('🦄 Delete book successfully!!!!');
-            navigate('/')
-        }catch (e) {
+        } catch (e) {
             console.log(e)
         }
     }
@@ -57,7 +56,7 @@ export function Library() {
                         <td>{book.quantity}</td>
                         <td>
                             <NavLink to={`/update/${book.id}`} className="btn btn-primary">Edit</NavLink>
-                            <button onClick={e=>handleDelete(book.id)} className="btn btn-danger">Delete</button>
+                            <button onClick={e => handleDelete(book.id)} className="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 ))}
