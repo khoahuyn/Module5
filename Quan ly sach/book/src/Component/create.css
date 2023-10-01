@@ -1,0 +1,12 @@
+.form-group .form-input input{
+    width: 350px;
+    border: 2px solid rgba(0, 0, 0, 0.54);
+    border-radius: 5px;
+}
+
+
+form .form-group{
+    margin-top:7px;
+}
+
+
