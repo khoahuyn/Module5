@@ -10,7 +10,7 @@ export function Library() {
 
     useEffect(() => {
         findAll();
-    }, [])
+    }, [books])
 
     const findAll = async () => {
         try {
@@ -24,7 +24,6 @@ export function Library() {
     const handleDelete = (id) => {
         try {
             axios.delete('http://localhost:8080/books/' + id)
-            setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
             toast('🦄 Delete book successfully!!!!');
         } catch (e) {
             console.log(e)
