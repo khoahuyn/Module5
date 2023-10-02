@@ -15,11 +15,10 @@ export function Update() {
 
 
     const [values, setValues] = useState({
-        id:'',
+        id: '',
         title: '',
         quantity: ''
     });
-
 
 
     useEffect(() => {
@@ -38,17 +37,17 @@ export function Update() {
     }
     return values.title !== "" ? (
 
-        <Formik  initialValues=
+        <Formik initialValues=
                     {{
                         id: values.id,
                         title: values.title,
                         quantity: values.quantity
                     }}
 
-            // validationSchema={Yup.object({
-            //     title: Yup.string().required("Title is not empty"),
-            //     quantity: Yup.number().required("Quantity is not empty"),
-            // })}
+                validationSchema={Yup.object({
+                    title: Yup.string().required("Title is not empty"),
+                    quantity: Yup.number().required("Quantity is not empty"),
+                })}
 
 
                 onSubmit={(values => {
@@ -72,7 +71,7 @@ export function Update() {
                     <label htmlFor="title">Title</label>
                     <div className="form-input">
                         <Field type="text" className="form-control" id="title" name="title"/>
-                        {/*<ErrorMessage name="title" className="text-danger" component="p"/>*/}
+                        <ErrorMessage name="title" className="text-danger" component="p"/>
                     </div>
                 </div>
 
@@ -80,7 +79,7 @@ export function Update() {
                     <label htmlFor="quantity">Quantity</label>
                     <div className="form-input">
                         <Field type="text" className="form-control" id="quantity" name="quantity"/>
-                        {/*<ErrorMessage name="quantity" className="text-danger" component="p"/>*/}
+                        <ErrorMessage name="quantity" className="text-danger" component="p"/>
                     </div>
                 </div>
 
