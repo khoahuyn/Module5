@@ -15,20 +15,16 @@ export function Update() {
 
 
     const [values, setValues] = useState({
+        id:'',
         title: '',
         quantity: ''
     });
 
-    function handleChange(event) {
-        setValues({
-            ...values,
-            [event.target.name]: event.target.value
-        });
-    }
+
 
     useEffect(() => {
         findById();
-    }, [id]);
+    }, []);
 
     const findById = async () => {
         try {
@@ -40,13 +36,13 @@ export function Update() {
             console.log(e)
         }
     }
-    console.log("Value", values);
-    return (
-        <Formik initialValues=
+    return values.title !== "" ? (
+
+        <Formik  initialValues=
                     {{
-                        id: '',
-                        title: '',
-                        quantity: ''
+                        id: values.id,
+                        title: values.title,
+                        quantity: values.quantity
                     }}
 
             // validationSchema={Yup.object({
@@ -55,7 +51,7 @@ export function Update() {
             // })}
 
 
-                onSubmit={(a => {
+                onSubmit={(values => {
                     const update = async (book) => {
                         try {
                             const result = await axios.put('http://localhost:8080/books/' + id, book)
@@ -75,8 +71,7 @@ export function Update() {
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <div className="form-input">
-                        <Field type="text" className="form-control" id="title" name="title" value={values.title}
-                               onChange={handleChange}/>
+                        <Field type="text" className="form-control" id="title" name="title"/>
                         {/*<ErrorMessage name="title" className="text-danger" component="p"/>*/}
                     </div>
                 </div>
@@ -84,9 +79,7 @@ export function Update() {
                 <div className="form-group">
                     <label htmlFor="quantity">Quantity</label>
                     <div className="form-input">
-                        <Field type="text" className="form-control" id="quantity" name="quantity"
-                               value={values.quantity}
-                               onChange={handleChange}/>
+                        <Field type="text" className="form-control" id="quantity" name="quantity"/>
                         {/*<ErrorMessage name="quantity" className="text-danger" component="p"/>*/}
                     </div>
                 </div>
@@ -100,5 +93,5 @@ export function Update() {
             </Form>
 
         </Formik>
-    );
+    ) : "";
 }
