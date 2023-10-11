@@ -3,14 +3,24 @@ import axios from "axios";
 import './list.css';
 import {NavLink} from "react-router-dom";
 import {toast} from "react-toastify";
+import useDebounce from "../Hooks/useDebounce";
 
 
 export function Library() {
     const [books, setBooks] = useState([])
 
+
+    const [originalbooks, setOriginalbooks] = useState([]);
+
+
+    const [search, setSearch] = useState("")
+    // const searchDebouce = useDebounce(search, 500);
+
+
     useEffect(() => {
         findAll();
     }, [])
+
 
     const findAll = async () => {
         try {
@@ -31,12 +41,39 @@ export function Library() {
         }
     }
 
+
+    // useEffect(() => {
+    //     const dataFilter = originalbooks.filter((item) =>
+    //         item.title.toLowerCase().includes(searchDebouce.toLowerCase())
+    //     );
+    //     setBooks(dataFilter);
+    // }, [searchDebouce, originalbooks]);
+
+
+    useEffect(() => {
+        const search = () => {
+            const results = bookList.filter((book) =>
+                book.title.toLowerCase().includes(searchTerm.toLowerCase()) || book.quantity.includes(searchTerm)
+            );
+            setSearchResults(results);
+        };
+
+        search();
+    }, [search, bookList]);
+
+
     return (
         <>
 
             <h1>Library <span>
                     <NavLink to="/create" className="btn btn-success">Add a new book</NavLink>
             </span></h1>
+
+            <form>
+                <input type="text" className="form-control" placeholder="Search Name"
+                       onChange={(e) => setSearch(e.target.value)}/>
+                <button type="submit">Search</button>
+            </form>
 
             <table className="table">
 
