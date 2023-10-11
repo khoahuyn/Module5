@@ -3,18 +3,14 @@ import axios from "axios";
 import './list.css';
 import {NavLink} from "react-router-dom";
 import {toast} from "react-toastify";
-import useDebounce from "../Hooks/useDebounce";
 
 
 export function Library() {
     const [books, setBooks] = useState([])
-
-
-    const [originalbooks, setOriginalbooks] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
 
 
     const [search, setSearch] = useState("")
-    // const searchDebouce = useDebounce(search, 500);
 
 
     useEffect(() => {
@@ -42,24 +38,18 @@ export function Library() {
     }
 
 
-    // useEffect(() => {
-    //     const dataFilter = originalbooks.filter((item) =>
-    //         item.title.toLowerCase().includes(searchDebouce.toLowerCase())
-    //     );
-    //     setBooks(dataFilter);
-    // }, [searchDebouce, originalbooks]);
-
 
     useEffect(() => {
-        const search = () => {
-            const results = bookList.filter((book) =>
-                book.title.toLowerCase().includes(searchTerm.toLowerCase()) || book.quantity.includes(searchTerm)
+        const Search = () => {
+            const results = books.filter((book) =>
+                book.title.toLowerCase().includes(search.toLowerCase()) || book.quantity.includes(search)
             );
             setSearchResults(results);
         };
 
-        search();
-    }, [search, bookList]);
+        Search();
+    }, [search, books]);
+
 
 
     return (
@@ -70,9 +60,8 @@ export function Library() {
             </span></h1>
 
             <form>
-                <input type="text" className="form-control" placeholder="Search Name"
+                <input type="text" className="form-control" placeholder="Search " value={search}
                        onChange={(e) => setSearch(e.target.value)}/>
-                <button type="submit">Search</button>
             </form>
 
             <table className="table">
@@ -87,7 +76,7 @@ export function Library() {
 
                 <tbody>
 
-                {books.map(book => (
+                {searchResults.map(book => (
                     <tr key={book.id}>
                         <td>{book.title}</td>
                         <td>{book.quantity}</td>
